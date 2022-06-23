@@ -18,8 +18,8 @@
           this.state = {
             time: new Date()
           }
+          console.log("App constructor");
         }
-
         componentDidMount () {
           // 컴포넌트가 화면에 출력되었을 때
           this.timerId = setInterval(() => {
@@ -27,14 +27,15 @@
               time: new Date()
             })
           }, 1000)
+          console.log("App componentDidMount");
         }
-
         componentWillUnmount () {
           // 컴포넌트가 화면에서 제거될 때
           clearInterval(this.timerId)
+          console.log("App componentWillUnmount");
         }
-
         render () {
+          console.log("App render");
           return <ul>
             <Item value={this.state.time.toLocaleString()} />
             <Item value={this.state.time.toLocaleString()} />
@@ -42,28 +43,27 @@
           </ul>
         }
       }
-
       class Item extends React.Component {
         constructor (props) {
           super(props)
           this.state = {
             value: props.value
           }
+          console.log("Item constructor");
         }
-
         componentDidUpdate (prevProps) {
           if (prevProps.value !== this.props.value) {
             this.setState({
               value: this.props.value
             })
           }
+          console.log("Item componentDidUpdate");
         }
-
         render () {
+          console.log("Item render");
           return <li>{this.state.value}</li>
         }   
       }
-  
       // 출력하기
       const container = document.getElementById('root')
       ReactDOM.render(<App />, container)
