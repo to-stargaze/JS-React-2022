@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 리액트 사용 준비 -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .greeting {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="t1"></div>
+    <hr>
+    <div id="t2"></div>
+    <hr>
+    <div id="t3"></div>
+    <hr>
+    <div id="t4"></div>
+    <hr>
+    <div id="t5"></div>
+    <hr>
+    <div id="t6"></div>
+    <hr>
+    <div id="t7"></div>
+    <hr>
+    <div id="t8"></div>
+    <!-- 리액트를 사용하는 코드 입력 -->
+    <script type="text/babel">
+        const Test1 = () => {
+            const name = '둘리';
+            return <h1>안녕? {name}...</h1>;
+        }
+
+        const Test2 = () => {
+            function formatName(user){
+                return user.firstName + ' ' + user.lastName;
+            }
+            const me = {
+                firstName : '김',
+                lastName : '둘리'
+            };
+            return <h1>안녕? {formatName(me)}</h1>;
+        }
+        const Test3 = () => {
+            return <a href = "https://ko.reactjs.org/">한국 React</a>
+        }
+        const Test4 = () => {
+            const url = "http://www.w3schools.com/react/default.asp/";
+            return <a href = {url}>w3schools의 React 학습 </a>
+        }
+        const Test5 = () => {
+            const numbers = [1,2,3,4,5];
+            const listItems = numbers.map((num) => <li>{num}</li>);
+            return <ul>{listItems}</ul>
+        }
+        const Test6 = (p) => {
+            const elem  = (
+                <div>
+                    <h1>hello?</h1>
+                    <h2>{p.friends}</h2>
+                </div>
+            );
+            return elem;
+        }
+        const Test7 = () => {
+            return React.createElement('h1',{className:'greeting'},'Hello World');
+        }
+        const Test8 = () => {
+            const ary = [{ imgsrc: '../jsexam2/images/cloud.png', size: 200 },
+            { imgsrc: '../jsexam2/images/sun.png', size: 400 },
+            { imgsrc: '../jsexam2/images/rain.png', size: 100 }
+            ]
+            return <div>{ary.map((item) => <img src={item.imgsrc} width={item.size} />)}</div>;
+        }
+        ReactDOM.render(<Test1 />, document.getElementById('t1'));
+        ReactDOM.render(<Test2 />, document.getElementById('t2'));
+        ReactDOM.render(<Test3 />, document.getElementById('t3'));
+        ReactDOM.render(<Test4 />, document.getElementById('t4'));
+        ReactDOM.render(<Test5 />, document.getElementById('t5'));
+        ReactDOM.render(<Test6 friends="도우너, 또치, 둘리" />, document.getElementById('t6'));
+        ReactDOM.render(<Test7 />, document.getElementById('t7'));
+        ReactDOM.render(<Test8 />, document.getElementById('t8'));
+    </script>
+</body>
+
+</html>

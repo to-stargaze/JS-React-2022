@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejugothic.css">
+    <style>
+        * {
+            font-family: 'Jeju Gothic', serif;
+        }
+
+        header {
+            height: 100px;
+            background-image: linear-gradient(to right, yellow, white, green);
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            height: 50px;
+            width: 200px;
+            background-image: linear-gradient(to right, rgb(236, 182, 227), rgb(227, 109, 193));
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px gray;
+            text-align: center;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+
+<body onload="displayTitle();">
+    <header id="title"></header>
+    <hr>
+    <button onclick="displayImage();">큐티이미지추가</button><br>
+    <div id="area"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const displayTitle = () => {
+            const korDayName = ['일', '월', '화', '수', '목', '금', '토'];
+            const Greeting = () => <h1>**오늘은 {korDayName[new Date().getDay()]}요일입니다**</h1>
+            ReactDOM.render(<Greeting />, document.querySelector("#title"));
+        }
+        const displayImage = () => {
+            const imgValue = `../jsexam2/images/${Math.floor(Math.random() * 10) + 1}.jpg`;
+            const size = 100;
+            const allDom = document.querySelectorAll("#area>div>img");
+            let allTag = [];
+            if (allDom.length > 0)
+                allDom.forEach((item) => allTag.push(<img src={item.src} width={size}></img>));
+
+            allTag.push(<img src={imgValue} width={size}></img>)
+            const Dolls = () => <div>{allTag}</div>
+
+            ReactDOM.render(<Dolls />, document.getElementsByTagName("div")[0]);
+        }
+    </script>
+</body>
+
+</html>

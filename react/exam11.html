@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 리액트 사용 준비 -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .st1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body id="t1">
+    <!-- 리액트를 사용하는 코드 입력 -->
+    <script type="text/babel">
+        function Best(props) {
+            return <h2 className="st1">베스트 회원 {props.memberName}님!</h2>;
+        }
+
+        function Member() {
+            return <div>
+                <h1>반갑습니다~~~</h1>
+                <Best memberName="둘리" />
+            </div>;
+        }
+        // t1 이라는 id 값을 갖는 태그의 DOM 객체에 Member 컴포넌트를 
+        // 컨텐트로 출력해 보자.
+        ReactDOM.render(<Member />,document.getElementById('t1'));
+    </script>
+</body>
+
+</html>

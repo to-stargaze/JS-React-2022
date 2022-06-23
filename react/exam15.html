@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 리액트 사용 준비 -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .st1 {
+            color: red;
+        }
+
+        .st2 {
+            color: rgb(98, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="t1"></div>
+    <div id="t2"></div>
+    <!-- 리액트를 사용하는 코드 입력 -->
+    <script type="text/babel">
+        const MyComponent = () => {
+            const [str, setStr] = React.useState('1');
+            return (
+                <div>
+                    <h1>{str}</h1>
+                    <button onClick={() => setStr(str + 1)}>Append String</button>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<MyComponent />, document.getElementById('t1'));
+    </script>
+</body>
+
+</html>

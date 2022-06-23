@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        div {
+            border: 1px solid green;
+            border-radius: 20px;
+            width: 500px;
+            margin: 10px auto;
+            box-shadow: 5px 5px 10px gray;
+            color: rgb(8, 228, 59);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>React 맛보기 예제(1)</h1>
+    <hr>
+    <div id="myReactApp"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        function Component(props) {
+            return <h1>{props.greeting}</h1>
+        }
+        const container = document.getElementById('myReactApp');
+        ReactDOM.render(<Component greeting="컴포넌트를 일반 함수로 구현함" />, container);
+    </script>
+</body>
+
+</html>
